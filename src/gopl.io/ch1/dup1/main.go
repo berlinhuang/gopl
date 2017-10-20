@@ -15,15 +15,19 @@ import (
 )
 
 func main() {
-	counts := make(map[string]int)
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
+	counts := make(map[string]int)// declare a map type counts which keep the pair(key,value)
+	input := bufio.NewScanner(os.Stdin) // declare a bufio.NewScanner Type
+	for input.Scan() {  //read a text   (input ctl+d to end reading)
+		//line := input.Text()
+		//counts[line] = counts[line] + 1
 		counts[input.Text()]++
 	}
 	// NOTE: ignoring potential errors from input.Err()
 	for line, n := range counts {
 		if n > 1 {
 			fmt.Printf("%d\t%s\n", n, line)
+			//log.Printf   fmt.Errorf         use fmt.Printf
+			//function name end with ln(line)    use Println
 		}
 	}
 }

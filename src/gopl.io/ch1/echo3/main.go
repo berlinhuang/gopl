@@ -14,6 +14,7 @@ import (
 
 //!+
 func main() {
+	//string.Join( lst, sep )
 	fmt.Println(strings.Join(os.Args[1:], " "))
 }
 
