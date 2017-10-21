@@ -16,12 +16,12 @@ import (
 
 func main() {
 	for _, url := range os.Args[1:] {
-		resp, err := http.Get(url)
+		resp, err := http.Get(url)//创建http请求
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
-			os.Exit(1)
+			os.Exit(1)//终止进程
 		}
-		b, err := ioutil.ReadAll(resp.Body)
+		b, err := ioutil.ReadAll(resp.Body)//ioutil.ReadAll读取全部内容
 		resp.Body.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: reading %s: %v\n", url, err)

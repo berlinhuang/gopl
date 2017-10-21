@@ -28,7 +28,7 @@ import (
 
 //!+main
 
-var palette = []color.Color{color.White, color.Black}
+var palette = []color.Color{color.White, color.Black}//声明一个slice切片
 
 const (
 	whiteIndex = 0 // first color in palette
@@ -65,9 +65,10 @@ func lissajous(out io.Writer) {
 		delay   = 8     // delay between frames in 10ms units
 	)
 	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
-	anim := gif.GIF{LoopCount: nframes}
+	anim := gif.GIF{LoopCount: nframes}//复合声明一个struct结构体
 	phase := 0.0 // phase difference
-	for i := 0; i < nframes; i++ {
+
+	for i := 0; i < nframes; i++ {//nframes次循环
 		rect := image.Rect(0, 0, 2*size+1, 2*size+1)
 		img := image.NewPaletted(rect, palette)
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
@@ -77,6 +78,7 @@ func lissajous(out io.Writer) {
 				blackIndex)
 		}
 		phase += 0.1
+		//更新anim的Delay和Image字段
 		anim.Delay = append(anim.Delay, delay)
 		anim.Image = append(anim.Image, img)
 	}
